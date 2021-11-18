@@ -23,6 +23,8 @@ Route::get('/', function () {
 // FRONT
 Route::get('/home', [HomeController::class, 'home'])->name('home');
 // CKEDITOR
+Route::middleware(['auth'])->group(function() {
+    // Route::middleware(['auteur'])->group(function () {
 Route::get('notes/ckeditor', [NoteController::class, 'index'])->name('ckeditors.index');
 Route::get('notes/ckeditors/create', [NoteController::class, 'create'])->name('ckeditors.create');
 Route::post('notes/ckeditors/store', [NoteController::class, 'store'])->name('ckeditors.store');
@@ -35,6 +37,8 @@ Route::delete('notes/ckeditors/{id}/delete', [NoteController::class, 'destroy'])
 Route::get('perso/prive', [UserController::class, 'index'])->name('prive.index');
 Route::post('perso/prive', [UserController::class, 'store_prive'])->name('prive.store');
 Route::post('perso/prive/{id}', [NoteController::class, 'share'])->name('prive.share');
+    // });
+});
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
