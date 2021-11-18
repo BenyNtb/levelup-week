@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NoteController;
+use App\Http\Controllers\UserController;
 use App\Models\Note;
 use Illuminate\Support\Facades\Route;
 
@@ -31,8 +32,9 @@ Route::put('notes/ckeditors/{id}/update', [NoteController::class, 'update'])->na
 Route::delete('notes/ckeditors/{id}/delete', [NoteController::class, 'destroy'])->name('ckeditors.destroy');
 
 // PRIVE 
-Route::get('perso/prive', [NoteController::class, 'prive'])->name('prive.index');
-
+Route::get('perso/prive', [UserController::class, 'index'])->name('prive.index');
+Route::post('perso/prive', [UserController::class, 'store_prive'])->name('prive.store');
+Route::post('perso/prive/{id}', [NoteController::class, 'share'])->name('prive.share');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

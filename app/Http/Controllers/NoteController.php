@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Editeur;
 use App\Models\Note;
 use App\Models\Tag;
 use Illuminate\Http\Request;
@@ -63,5 +64,14 @@ class NoteController extends Controller
     {
         $note = $id;
         return view('perso.prive', compact('note'));
+    }
+    public function share(Note $id, Request $request)
+    {
+        $note = $id;
+        $editeur = new Editeur();
+        $editeur->user_id = $request->share;
+        $editeur->note_id = $note->id;
+        $editeur->save();
+        return redirect()->back();
     }
 }
