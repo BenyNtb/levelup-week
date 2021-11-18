@@ -67,7 +67,7 @@ module.exports = {
                     </div>
                 </li>
                 <li class="block relative">
-                    <a href="#"
+                    <a href="{{route('home')}}"
                         class="flex items-center h-10 leading-10 px-4 rounded cursor-pointer no-underline hover:no-underline transition-colors duration-100 mx-1 hover:bg-gray-100">
                         <span class="mr-3 text-xl"> <i class="mdi mdi-widgets-outline"></i> </span>
                         <span>Global</span>
@@ -324,7 +324,9 @@ module.exports = {
                     </div>
                 </li>
                 <!-- Green Button -->
-                <a href="{{route('ckeditors.index')}}">Créer une note</a>
+                {{-- <a href="{{route('ckeditors.index')}}">Créer une note</a> --}}
+                <button onclick="location.href='{{route('ckeditors.index')}}'" type="button" class="p-2 pl-5 pr-5 bg-transparent border-2 border-green-500 text-green-500 text-lg rounded-lg transition-colors duration-700 transform hover:bg-green-500 hover:text-gray-100 focus:border-4 focus:border-green-300">
+                    Créer une note</button>
             </ul>
         </div>
     </div>

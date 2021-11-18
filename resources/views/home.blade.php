@@ -33,18 +33,16 @@ plugins: [require('@tailwindcss/forms'),]
                         <div class="mt-2">
                             @forelse ($notes as $note)
                                 <a href="#"
-                                class="text-2xl font-bold text-gray-700 hover:underline">{{ $note->titre }}</a>
-                                <p class="mt-2 text-gray-600">{{ $note->description }}</p>
+                                class="text-2xl font-bold text-gray-700 hover:underline">{!! $note->titre !!}</a>
+                                <p class="mt-2 text-gray-600">{!! $note->description !!}</p>
                             @empty
                                 <p class="text-center font-bold mx-auto my-3">Pas de note</p>
-                            @endforelse 
-                                
-                            
-                        </div>
-                        <div class="flex items-center justify-between mt-4"><a href="#"
+                            </div>
+                            <div class="flex items-center justify-between mt-4"><a href="#"
                                 class="text-blue-500 hover:underline">Read more</a>
+                            @endforelse     
                             <!-- LikeBtn.com BEGIN -->
-                            <span class="likebtn-wrapper" data-theme="custom" data-icon_l_c_v="#20fb05"
+                            {{-- <span class="likebtn-wrapper" data-theme="custom" data-icon_l_c_v="#20fb05"
                                 data-icon_d_c_v="#fb0505" data-identifier="item_1"></span>
                             <script>
                                 (function(d, e, s) {
@@ -56,7 +54,7 @@ plugins: [require('@tailwindcss/forms'),]
                                     a.src = s;
                                     m.parentNode.insertBefore(a, m)
                                 })(document, "script", "//w.likebtn.com/js/w/widget.js");
-                            </script>
+                            </script> --}}
                             <!-- LikeBtn.com END -->
                             <div><a href="#" class="flex items-center"><img
                                         src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=731&amp;q=80"
